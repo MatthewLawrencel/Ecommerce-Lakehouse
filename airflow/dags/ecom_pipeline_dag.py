@@ -1,47 +1,44 @@
-from airflow import DAG
-from airflow.operators.python import PythonOperator
 from datetime import datetime
-import os
-
-AIRFLOW_HOME = os.getenv("AIRFLOW_HOME", "/home/lawre/ecom-lakehouse/airflow")
+from airflow import DAG
+from airflow.operators.bash import BashOperator
 
 default_args = {
-    "owner": "lawre",
-    "depends_on_past": False,
-    "retries": 1,
+    'owner': 'lawre',
+    'start_date': datetime(2025, 10, 20),  # set explicit start_date
 }
 
-def bronze_task():
-    exec(open(f"{AIRFLOW_HOME}/scripts/bronze_ingest.py").read())
-
-def silver_task():
-    exec(open(f"{AIRFLOW_HOME}/scripts/silver_transform.py").read())
-
-def gold_task():
-    exec(open(f"{AIRFLOW_HOME}/scripts/gold_aggregate.py").read())
-
 with DAG(
-    dag_id="ecom_orders_pipeline",
-    start_date=datetime(2025, 10, 19),
-    schedule_interval="@daily",
-    catchup=False,
+    dag_id='ecom_pipeline',
     default_args=default_args,
+    description='E-commerce pipeline DAG',
+    schedule='0 6 * * *',  # cron syntax
+    catchup=False,
 ) as dag:
 
-    bronze = PythonOperator(
-        task_id="bronze_ingest",
-        python_callable=bronze_task
+    generate_data = BashOperator(
+        task_id='generate_data',
+        bash_command='python3 ~/ecom-lakehouse/scripts/generate_data.py'
     )
 
-    silver = PythonOperator(
-        task_id="silver_transform",
-        python_callable=silver_task
+    csv_to_bronze = BashOperator(
+        task_id='csv_to_bronze',
+        bash_command='python3 ~/ecom-lakehouse/scripts/csv_to_parquet.py'
     )
 
-    gold = PythonOperator(
-        task_id="gold_aggregate",
-        python_callable=gold_task
+    partition_bronze = BashOperator(
+        task_id='partition_bronze',
+        bash_command='python3 ~/ecom-lakehouse/scripts/partition_bronze.py'
     )
 
-    bronze >> silver >> gold
+    transform_silver = BashOperator(
+        task_id='transform_silver',
+        bash_command='python3 ~/ecom-lakehouse/scripts/transform_silver.py'
+    )
 
+    gold_layer = BashOperator(
+        task_id='gold_layer',
+        bash_command='python3 ~/ecom-lakehouse/scripts/gold_aggregations.py'
+    )
+
+    # Task dependencies
+    generate_data >> csv_to_bronze >> partition_bronze >> transform_silver >> gold_layer
