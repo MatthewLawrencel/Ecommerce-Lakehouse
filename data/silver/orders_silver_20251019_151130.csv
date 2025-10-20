@@ -1,0 +1,4 @@
+order_id,customer,total_amount,order_date,order_month
+1,Alice,250.75,2025-10-17,2025-10
+2,Bob,100.5,2025-10-18,2025-10
+3,Charlie,300.4,2025-10-19,2025-10
