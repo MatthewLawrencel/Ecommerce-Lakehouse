@@ -1,4 +1,4 @@
-# ecommerce Lakehouse Data Pipeline
+# Ecommerce Lakehouse Data Pipeline
 
 ## Overview
 
