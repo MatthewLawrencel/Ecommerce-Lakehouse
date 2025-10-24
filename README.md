@@ -71,7 +71,7 @@ airflow db init
 3. Start Airflow scheduler:
 
 ```bash
-airflow scheduler
+airflow standalone
 ```
 
 4. Trigger the DAG:
