@@ -6,7 +6,6 @@ A complete end-to-end ecommerce data lakehouse built with BigQuery, dbt, and Loo
    **Looker Studio Dashboard:**
 
 https://lookerstudio.google.com/reporting/27d909cb-c17e-493d-bc1f-3d5aa367255b
-
 ##  Tech Stack
 
 | Layer | Technology | Purpose |
@@ -132,8 +131,6 @@ ecommerce_lakehouse/
 
 ###   Revenue Overview
 - Daily Revenue (line chart)
-- Total Orders (scorecard)
-- Total Revenue (scorecard)
 
 ###  Product Performance
 - Top Products by Revenue (table)
@@ -141,7 +138,7 @@ ecommerce_lakehouse/
 
 ###  Customer Insights
 - Customer LTV (table)
-- Avg LTV (scorecard)
+- Total orders (scorecard)
 - Total LTV (scorecard)
 
 ###  Order Funnel
