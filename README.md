@@ -4,7 +4,9 @@ A complete end-to-end ecommerce data lakehouse built with BigQuery, dbt, and Loo
 ##  Live Dashboard
 
    **Looker Studio Dashboard:**
+
 https://lookerstudio.google.com/reporting/27d909cb-c17e-493d-bc1f-3d5aa367255b
+
 ##  Tech Stack
 
 | Layer | Technology | Purpose |
@@ -99,7 +101,7 @@ ecommerce_lakehouse/
 ```
 ##  dbt Models Overview
 
-### 🔹 Staging Layer (Clean Raw Data)
+### Staging Layer (Clean Raw Data)
 
 - `stg_customers`
 - `stg_orders` 
@@ -109,7 +111,7 @@ ecommerce_lakehouse/
   Cleans columns  
   Standardizes naming
 
-### 🔹 Marts Layer (Business Entities)
+###  Marts Layer (Business Entities)
 
 **Dimensions**
 - `dim_customers` — unique customer master table
@@ -119,7 +121,7 @@ ecommerce_lakehouse/
 - `fact_orders` — order-level metrics
 - `fact_order_items` — granular product-level metrics
 
-### 🔹 Analytics Layer (Business Metrics)
+###  Analytics Layer (Business Metrics)
 
 - `daily_revenue` — revenue + orders per day
 - `product_performance` — units sold & revenue by product
@@ -143,10 +145,10 @@ ecommerce_lakehouse/
 - Total LTV (scorecard)
 
 ###  Order Funnel
-- Delivered / Cancelled / Returned distribution (donut/pie)
+- Delivered / Cancelled / Returned distribution (donut)
 - Status breakdown (table)
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### Clone repo & create venv
 ```bash
@@ -159,6 +161,7 @@ pip install dbt-bigquery
 ```
 ### Configure your profiles.yml
 Located at:
+
 ~/.dbt/profiles.yml
 
 Example:
@@ -183,7 +186,6 @@ dbt test
 ## Author
    **Matthew Lawrence L**
    
-     Data Engineer
-   
-     Bengaluru,Karnataka,India
+   Data Engineer
+   Bengaluru,Karnataka,India
 
