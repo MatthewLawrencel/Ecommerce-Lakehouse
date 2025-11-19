@@ -66,7 +66,7 @@ https://lookerstudio.google.com/reporting/27d909cb-c17e-493d-bc1f-3d5aa367255b
                  │ Revenue • Products • LTV • Funnel│
                  └──────────────────────────────────┘
 
-
+```
 ##  Project Structure
 ```bash
 ecommerce_lakehouse/
@@ -96,7 +96,7 @@ ecommerce_lakehouse/
 └── README.md
 
 
-
+```
 ##  dbt Models Overview
 
 ### 🔹 Staging Layer (Clean Raw Data)
@@ -105,9 +105,9 @@ ecommerce_lakehouse/
 - `stg_orders` 
 - `stg_order_items`
 
-✔ Casts data types  
-✔ Cleans columns  
-✔ Standardizes naming
+  Casts data types  
+  Cleans columns  
+  Standardizes naming
 
 ### 🔹 Marts Layer (Business Entities)
 
@@ -152,11 +152,11 @@ ecommerce_lakehouse/
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-
+```
 ### Install dbt BigQuery
 ```bash
 pip install dbt-bigquery
-
+```
 ### Configure your profiles.yml
 Located at:
 ~/.dbt/profiles.yml
@@ -173,15 +173,17 @@ ecommerce_lakehouse:
       threads: 4
       location: asia-south1
   target: dev
-
+```
 ### Run dbt
 ```bash
 dbt debug
 dbt run
 dbt test
-
+```
 ## Author
    **Matthew Lawrence L**
+   
      Data Engineer
+   
      Bengaluru,Karnataka,India
 
