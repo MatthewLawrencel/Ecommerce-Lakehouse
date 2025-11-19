@@ -1,0 +1,5 @@
+customer_id,first_name,last_name,email,phone,created_at
+1,Arjun,Mehta,arjun.mehta@example.com,9876543210,2022-01-05
+2,Priya,Sharma,priya.sharma@example.com,9998877665,2022-02-12
+3,Kunal,Rao,kunal.rao@example.com,9090909090,2022-03-20
+4,Swati,Agarwal,swati.ag@example.com,8887766554,2022-04-17

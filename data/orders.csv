@@ -1,0 +1,6 @@
+order_id,customer_id,order_date,status,total_amount
+101,1,2022-03-01,Delivered,1500
+102,2,2022-03-03,Delivered,2300
+103,1,2022-03-07,Cancelled,900
+104,3,2022-03-10,Delivered,3200
+105,4,2022-03-12,Returned,1100
